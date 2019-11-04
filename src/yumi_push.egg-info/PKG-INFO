@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: yumi-push
+Version: 0.1
+Summary: Multi-armed object singulation for ABB Yumi robot
+Home-page: https://github.com/simon-schaefer/yumi-push
+Author: ['Simon Schaefer', 'Patrick Pfreundschuh']
+Author-email: sischaef@ethz.ch
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Prealpha
+Classifier: Programming Language :: Python :: 3
