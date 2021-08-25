@@ -1,7 +1,7 @@
 gym==0.12.0
 numpy
 Pillow
-PyYAML==5.1
+PyYAML==5.4
 scikit-image
 sklearn
 opencv-python
