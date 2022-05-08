@@ -1,7 +1,7 @@
 # Interactive Segmentation using Object Singulation
 <p align="center">
   <a href="https://youtu.be/c3uuF9amHV8">
-    <img src="assets/thumbnail_yt.png" alt="AEGNN" width="500"/>
+    <img src="assets/thumbnail_yt.jpeg" alt="Youtube Thumbnail" width="500"/>
   </a>
 </p>
 
