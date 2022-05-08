@@ -1,0 +1,99 @@
+# =============================================================================
+# Simple pushing task.
+# =============================================================================
+---
+config: "simple_fixed_ppo"
+
+# Logging properties.
+debug: false
+visualize: false
+verbose: true
+
+# World.
+camera_config: "sim_camerax8quad.yaml" #"sim_camerax8quad.yaml"
+workspace: "large" # (small, large)
+scene: "cubes_fixed" #(cubes_fixed, cubes_smart, cubes_preset)
+scene_cubes: "cube_large" # (cube, cube_large)
+scene_cube_random_choice: false
+scene_prob_neighbor: 1.0
+scene_max_objects: 2
+scene_min_objects: 2
+scene_resting_time: 0.05 #[s]
+sim_solver_iters: 100
+sim_dt: 0.01
+
+# Actuator.
+actuator: "start_cardinal" #(start_target, start_cardinal, start_cardinal_half, start_only)
+act_mass: 40000.0
+act_pushing_dis: 1.0
+act_clipping: false
+act_discrete: false
+act_discrete_steps: 20
+
+# Perception.
+sensor_type: "distances" #(segmented, distances)
+prefilt_cutting_part: 20.0
+seg_method: "boolean"
+in_object_padding_dis: 0.1
+
+# Reward.
+rew_inc_diff_dis: true
+rew_max_inter_dis: 0.15 #[m]
+rew_diff_dis_max_reward: 1000.0
+rew_diff_dis_goal_per_obj: 0.1 #[m]
+
+rew_inc_time_penalty: false
+rew_time_penalty: -5.0
+
+rew_inc_act_start_dis: true
+rew_act_start_dis_goal: 0.2 #[m]
+rew_act_start_dis_max_reward: 300.0
+rew_act_start_dis_min_reward: -100.0
+rew_act_start_dis_max_dis: 1.5 #[sqrt(2)*2][m]
+rew_act_start_dis_succeed: false
+
+rew_inc_pushing_dis: false
+
+rew_in_obj_penalty: 100.0
+rew_final: 1000.0
+
+rew_schedule: false
+rew_schedule_diff_dis: [0,-1]
+rew_schedule_act_start_dis: [0,-1]
+
+# sampling
+uniform_sampling: true
+
+# Task.
+task_max_trials_eps: 1
+
+# Training.
+train_algo: "ppo2" #(deepq, ppo2)
+train_steps: 1000000
+train_learning_rate: 5e-4
+train_gamma: 0.0
+# ppo2-specific.
+train_steps_update: 2048
+train_minibatches_update: 512
+train_epoch_update: 3
+train_value_fn_coeff: 0.75
+train_entropy_coeff: 0.005
+train_lambda: 0.95
+# deepq-specific.
+train_buffer_size: 50000
+train_exploration_fraction: 0.3
+train_exploration_final_eps: 0.01
+train_prioritized_replay: false
+
+# Evaluation.
+eval_steps: 10
+
+# Model.
+model_network: "fc_very_large"
+model_obs_downscaling: 1
+
+# Checkpoint.
+ckp_plot_save_interval: 1000
+ckp_model_save_interval: 10
+ckp_testing_interval: 200
+...
